@@ -150,7 +150,7 @@
     book.appendChild(sec);
   }
 
-  const current = () => Math.round(book.scrollTop / book.clientHeight);
+  const current = () => Math.round(book.scrollTop / (book.clientHeight || 1));
   const goTo = (i) => book.scrollTo({ top: Math.max(0, Math.min(TOTAL - 1, i)) * book.clientHeight, behavior: 'smooth' });
   const updateCounter = () => { counter.textContent = `${current() + 1} / ${TOTAL}`; };
   book.addEventListener('scroll', updateCounter, { passive: true });
